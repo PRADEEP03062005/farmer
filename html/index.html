@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm to Home - Vegetables</title>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 0;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+
+        /* Menu Styles */
+        .menu-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            width: 200px;
+            padding: 10px;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .menu a:last-child {
+            border-bottom: none;
+        }
+
+        .menu a:hover {
+            background-color: #f4f4f4;
+        }
+
+        /* Profile Icon */
+        .profile-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* Vegetable List */
+        #vegetable-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            width: 80%;
+            max-width: 900px;
+        }
+
+        .vegetable {
+            width: 200px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .vegetable:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .vegetable img {
+            width: 100%;
+            height: 150px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            object-fit: cover;
+        }
+
+        .vegetable h3 {
+            padding: 10px 0;
+            font-size: 20px;
+            color: #4CAF50;
+        }
+
+        .vegetable p {
+            padding: 10px;
+            font-size: 16px;
+            color: #777;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            #vegetable-list {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="menu-icon" onmouseover="showMenu()" onclick="toggleMenu()">&#9776;</div>
+        <div class="profile-icon" onclick="goToProfile()">&#128100;</div>
+        <h1>Farm to Home - Vegetables</h1>
+        <p>Click on a vegetable to find nearby vendors.</p>
+    </header>
+
+    <!-- Menu Section -->
+    <div class="menu" id="menu" onmouseover="menuHovered()" onmouseout="hideMenu()">
+        <a href="farmer-login.html">Login as Farmer</a>
+        <a href="customer-login.html">Login as Customer</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="support.html">Support Us</a>
+    </div>
+
+    <!-- Vegetable List Section -->
+    <section id="vegetable-list">
+        <div class="vegetable" onclick="goToVendorPage('Tomato')">
+            <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQAOpGpc-kiO1H-awMfLOrgBoi20cQv43EnRL6QvT1eKgWgczRjzXfg7J0kUIq-Z2K8qBZx0-Haz9PnMRXJswB5AQ" alt="Tomato">
+            <h3>Tomato</h3>
+            <p>₹50 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('Potato')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLJ09z7RotDZtdtxTSfRAznJY07_bP_v-JHLoJaGcwgoLL0PVAptRsD2HQn1tABb2HzUU&usqp=CAU" alt="Potato">
+            <h3>Potato</h3>
+            <p>₹30 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('Onion')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU2_7TXFnnMM6hQu9uneev1EroF0f2j8YFqdClxi8NFSpjaF5aKDGF2lByT09wDS4aYf8&usqp=CAU" alt="Onion">
+            <h3>Onion</h3>
+            <p>₹40 / kg</p>
+        </div>
+    </section>
+
+    <script>
+        // Show the menu when the mouse is over the menu icon
+        function showMenu() {
+            document.getElementById('menu').style.display = 'block';
+        }
+
+        // Hide the menu when the mouse leaves the menu icon area and menu itself
+        function hideMenu() {
+            document.getElementById('menu').style.display = 'none';
+        }
+
+        // Keep the menu visible when hovering over the menu itself
+        function menuHovered() {
+            document.getElementById('menu').style.display = 'block';
+        }
+
+        // Toggle menu visibility on click (to keep it open until clicked again)
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+
+        // Redirect to Vendor Page
+        function goToVendorPage(vegetableName) {
+            localStorage.setItem('selectedVegetable', vegetableName);
+            window.location.href = 'vendor.html';
+        }
+
+        // Redirect to Profile Page
+        function goToProfile() {
+            window.location.href = 'profile.html'; // Change this to the actual profile page URL
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Farm to Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 5px solid #333;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        section {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content {
+            line-height: 1.8;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .about-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 250px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .stat-box img {
+            width: 70px;
+            margin-bottom: 15px;
+        }
+
+        .stat-box h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        .stat-box p {
+            font-size: 20px;
+            color: #333;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Farm to Home</h1>
+        <p>Your Source for Fresh, Local Vegetables & Fruits Delivered to Your Door</p>
+    </header>
+
+    <section>
+        <div class="about-container">
+            <h2>About Us</h2>
+            <div class="content">
+                <p>Welcome to <span class="highlight">Farm to Home</span>, your trusted source for fresh, locally grown vegetables and fruits delivered right to your doorstep! We’re proud to be an Indian platform that connects consumers with trusted farmers and vendors across the country. Our mission is simple: to bring the farm-fresh experience to your home, providing you with the best quality produce that is grown sustainably and sold at fair prices.</p>
+                
+                <h3>Freshness You Can Trust</h3>
+                <p>At <span class="highlight">Farm to Home</span>, we believe in the power of fresh produce. We source vegetables and fruits directly from local farmers, ensuring that each product is picked at its peak ripeness and delivered with the utmost care. Whether you need crisp greens, juicy fruits, or tender vegetables, we’ve got you covered. Our platform guarantees that you’re getting the freshest, healthiest produce available – all grown without harmful chemicals or artificial additives.</p>
+                
+                <h3>Why Choose Us?</h3>
+                <ul>
+                    <li><span class="highlight">Fresh, Quality Produce</span>: We guarantee farm-fresh vegetables and fruits delivered to you with the highest quality standards.</li>
+                    <li><span class="highlight">Wide Selection</span>: With a network of over 1000 vendors in every state, we offer an unmatched selection of local, seasonal, and organic products.</li>
+                    <li><span class="highlight">Support Local Farmers</span>: By choosing <span class="highlight">Farm to Home</span>, you’re directly supporting Indian farmers and promoting sustainable agricultural practices.</li>
+                    <li><span class="highlight">Convenient Delivery</span>: We make grocery shopping simple. Choose your produce, place an order, and receive it at your doorstep—on time, every time.</li>
+                    <li><span class="highlight">Customer Satisfaction</span>: With more than half a million customers already enjoying our services, our commitment to customer satisfaction is unwavering. We’re here to ensure you get the best shopping experience, every time.</li>
+                </ul>
+                
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <img src="https://thumbs.dreamstime.com/b/customer-icon-vector-isolated-white-background-your-web-mobile-app-design-logo-concept-sign-symbol-backgroun-133803578.jpg" alt="Customers">
+                        <h3>5000+<i>K</i></h3>
+                        <p>Happy Customers</p>
+                    </div>
+                    <div class="stat-box">
+                        <img src="https://w7.pngwing.com/pngs/980/98/png-transparent-vendor-computer-icons-supplier-angle-textile-logo.png" alt="Vendors">
+                        <h3>10+</h3>
+                        <p>Vendors in Every State</p>
+                    </div>
+                    <div class="stat-box">
+                        <img src="https://img.icons8.com/ios/50/000000/farm.png" alt="Farmers">
+                        <h3>100+</h3>
+                        <p>Farmers Supporting Us</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Farm to Home. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Function to animate numbers from 0 to target value
+        function animateNumbers() {
+            const numbers = document.querySelectorAll(".stat-box h3");
+            numbers.forEach(function (number) {
+                let target = parseInt(number.innerText);
+                let count = 0;
+                let interval = setInterval(function () {
+                    if (count < target) {
+                        count++;
+                        number.innerText = count +"K";
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, 10);
+            });
+        }
+
+        // Start the animation when the page is loaded
+        window.onload = animateNumbers;
+    </script>
+</body>
+</html>

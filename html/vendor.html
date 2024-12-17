@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm to Home - Vendor</title>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+
+        #vendor-list {
+            width: 80%;
+            max-width: 900px;
+        }
+
+        .vendor {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .vendor:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .vendor h3 {
+            color: #4CAF50;
+            font-size: 22px;
+        }
+
+        .vendor p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #777;
+        }
+
+        .vendor button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .vendor button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Farm to Home - Vendor</h1>
+        <p>Nearby vendors for <span id="vegetable-name"></span>.</p>
+    </header>
+
+    <section id="vendor-list">
+        <div class="vendor">
+            <h3>Farmer A</h3>
+            <p>Location: Village XYZ</p>
+            <p>Price: ₹50 / kg</p>
+            <button>Contact</button>
+        </div>
+        <div class="vendor">
+            <h3>Farmer B</h3>
+            <p>Location: Town ABC</p>
+            <p>Price: ₹48 / kg</p>
+            <button>Contact</button>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('vegetable-name').textContent = localStorage.getItem('selectedVegetable');
+    </script>
+</body>
+</html>
