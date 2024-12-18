@@ -5,6 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farm to Home - Vegetables</title>
     <style>
+        .c {
+            min-width: 700px;
+            width: 700px;
+            height: 500px;
+            border-radius: 12px;
+            padding: 20px;
+            padding-bottom: 40px;
+            box-shadow: 0 8px 48px 2px hsla(10 6% 15% / .4);
+
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+
+            position: relative;
+            overflow: hidden;
+            background: hsl(0 0% 90%);
+
+            box-sizing: border-box;
+        }
+
+        .ci {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: inherit;
+            height: inherit;
+            transform-origin: left 50%;
+
+            background: inherit;
+
+            z-index: var(--z);
+            transition: .3s ease-out;
+        }
+
+        .ci img {
+            -moz-user-select: none;
+            user-select: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ch {
+            position: absolute;
+            top: 70%;
+            left: 4%;
+            transform: translateY(-50%);
+
+            font-size: 2rem;
+            color: hsla(var(--h) var(--s) var(--l) / .8);
+            text-shadow: 0 2px 10px hsla(var(--h) var(--s) 10% / .3);
+        }
+
+        input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            z-index: -10;
+        }
+
+        label {
+            width: 10%;
+            height: 10px;
+            margin-right: 4px;
+            border-radius: 20px;
+
+            background: hsla(0 0% 90% / .3);
+            cursor: pointer;
+
+            position: relative;
+            z-index: 10;
+        }
+
+        label:last-child {
+            margin-right: 0;
+        }
+
+        input:checked+label {
+            background: linear-gradient(to right,
+                hsla(var(--hue) 80% 70% / .7),
+                hsla(calc(var(--hue) + 30) 80% 50% / .7));
+        }
+
+        input:not(:checked)+label+.ci {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        input:checked+label+.ci~.ci {
+            transform: translateX(100%);
+        }
+
+        input:not(:checked)+label+.ci {
+            transition: 0;
+        }
         /* Base styles */
         * {
             margin: 0;
@@ -20,6 +117,16 @@
             flex-direction: column;
             align-items: center;
             padding: 50px 0;
+            
+            justify-content: center;
+            align-items: center;
+
+            min-height: 100vh;
+            margin: 0;
+
+            background: hsl(0 0% 98%);
+            font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Open Sans', sans-serif;
+            color: #333;
         }
 
         /* Header Styles */
@@ -165,6 +272,41 @@
         <a href="contact.html">Contact Us</a>
         <a href="support.html">Support Us</a>
     </div>
+    <div class="c">
+        <!-- Slide 1 -->
+        <input type="radio" name="a" id="cr-1" checked>
+        <label for="cr-1" style="--hue: 32"></label>
+        <div class="ci" style="--z: 4">
+            <h2 class="ch" style="--h: 32; --s: 80%; --l: 90%">Fresh Radishes</h2>
+            <img src="https://www.nutritionadvance.com/wp-content/uploads/2018/01/red-radishes-and-their-leaves-in-a-basket.jpg" alt="Fresh Radishes">
+        </div>
+
+        <!-- Slide 2 -->
+        <input type="radio" name="a" id="cr-2">
+        <label for="cr-2" style="--hue: 82"></label>
+        <div class="ci" style="--z: 3">
+            <h2 class="ch" style="--h: 82; --s: 80%; --l: 90%">Whole Garlic</h2>
+            <img src="https://www.nutritionadvance.com/wp-content/uploads/2018/01/whole-garlic-with-skin-and-a-garlic-clove.jpg" alt="Whole Garlic">
+        </div>
+
+        <!-- Slide 3 -->
+        <input type="radio" name="a" id="cr-3">
+        <label for="cr-3" style="--hue: 40"></label>
+        <div class="ci" style="--z: 2">
+            <h2 class="ch" style="--h: 40; --s: 100%; --l: 89%">Amaranth Leaves</h2>
+            <img src="https://www.nutritionadvance.com/wp-content/uploads/2020/06/pile-of-green-amaranth-leaves.jpg" alt="Amaranth Leaves">
+        </div>
+
+        <!-- Slide 4 -->
+        <input type="radio" name="a" id="cr-4">
+        <label for="cr-4" style="--hue: 210"></label>
+        <div class="ci" style="--z: 1">
+            <h2 class="ch" style="--h: 210; --s: 70%; --l: 90%">Bok Choy</h2>
+            <img src="https://www.nutritionadvance.com/wp-content/uploads/2018/01/bok-choy-chinese-cabbage.jpg" alt="Bok Choy">
+        </div>
+    </div>
+    <h1> </h1>
+    <h1></h1>
 
     <!-- Vegetable List Section -->
     <section id="vegetable-list">
@@ -182,6 +324,106 @@
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU2_7TXFnnMM6hQu9uneev1EroF0f2j8YFqdClxi8NFSpjaF5aKDGF2lByT09wDS4aYf8&usqp=CAU" alt="Onion">
             <h3>Onion</h3>
             <p>₹40 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('Radish')">
+            <img src="https://www.nutritionadvance.com/wp-content/uploads/2018/01/red-radishes-and-their-leaves-in-a-basket.jpg" alt="Radish">
+            <h3>Radish</h3>
+            <p>₹20 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('Garlic')">
+            <img src="https://www.nutritionadvance.com/wp-content/uploads/2018/01/whole-garlic-with-skin-and-a-garlic-clove.jpg" alt="Garlic">
+            <h3>Garlic</h3>
+            <p>₹200 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('Green Amaranth Leaves')">
+            <img src="https://www.nutritionadvance.com/wp-content/uploads/2020/06/pile-of-green-amaranth-leaves.jpg" alt="Green Amaranth Leaves">
+            <h3>Green Amaranth Leaves</h3>
+            <p>₹10 / pack</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('Bok Choy')">
+            <img src="https://www.nutritionadvance.com/wp-content/uploads/2018/01/bok-choy-chinese-cabbage.jpg" alt="Bok Choy">
+            <h3>Bok Choy</h3>
+            <p>₹20 / pece</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('Butternut Squash')">
+            <img src="https://www.nutritionadvance.com/wp-content/uploads/2018/01/fresh-butternut-squash-sliced-into-two-halves.jpg" alt="Butternut Squash">
+            <h3>Butternut Squash</h3>
+            <p>₹20 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('Cabbage (Green)')">
+            <img src="https://www.nutritionadvance.com/wp-content/uploads/2018/01/whole-green-cabbage-cut-into-pieces.jpg" alt="Cabbage (Green)">
+            <h3>Cabbage (Green)</h3>
+            <p>₹21 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('Carrots')">
+            <img src="https://www.nutritionadvance.com/wp-content/uploads/2018/01/several-fresh-carrots-with-intact-green-stems.jpg" alt="Carrots">
+            <h3>Carrots</h3>
+            <p>₹50 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('Daikon Radish')">
+            <img src="https://www.nutritionadvance.com/wp-content/uploads/2018/01/east-asian-daikon-radish.jpg" alt="Daikon Radish">
+            <h3>Daikon Radish</h3>
+            <p>₹35 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('Eggplant (Aubergine)')">
+            <img src="https://www.nutritionadvance.com/wp-content/uploads/2018/01/whole-and-sliced-eggplant-aubergine.jpg" alt="Eggplant (Aubergine)">
+            <h3>Eggplant (Aubergine)</h3>
+            <p>₹51 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('Leeks')">
+            <img src="https://www.nutritionadvance.com/wp-content/uploads/2018/01/green-leaks.jpg" alt="Leeks">
+            <h3>Leeks</h3>
+            <p>₹43 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('Mushrooms')">
+            <img src="https://tiimg.tistatic.com/fp/1/006/557/a-grade-organic-mashroom-810.jpg" alt="Mushrooms">
+            <h3>Mushrooms</h3>
+            <p>₹100 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('Okra')">
+            <img src="https://www.nutritionadvance.com/wp-content/uploads/2018/01/fresh-green-okra-vegetable.jpg" alt="Okra">
+            <h3>Okra</h3>
+            <p>₹40 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('sweet potato')">
+            <img src="https://cdn.media.amplience.net/i/japancentre/recipe-1668-japanese-baked-sweet-potato/Japanese-baked-sweet-potato?$poi$&w=700&h=410&sm=c&fmt=auto" alt="sweet potato">
+            <h3>sweet potato</h3>
+            <p>₹65 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('Spinach')">
+            <img src="https://www.nutritionadvance.com/wp-content/uploads/2018/01/bunch-of-raw-fresh-spinach-leaves.jpg" alt="Spinach">
+            <h3>Spinach</h3>
+            <p>₹50 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('Tomatoes')">
+            <img src="https://www.nutritionadvance.com/wp-content/uploads/2018/01/colorful-cherry-tomatoes-in-a-variety-of-different-colors.jpg" alt="Tomatoes">
+            <h3>Tomatoes</h3>
+            <p>₹30 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('Zucchini')">
+            <img src="https://www.nutritionadvance.com/wp-content/uploads/2018/01/two-raw-fresh-zucchini-courgette-vegetables.jpg" alt="Zucchini">
+            <h3>Zucchini</h3>
+            <p>₹40 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('ginger')">
+            <img src="https://images.immediate.co.uk/production/volatile/sites/30/2013/06/ginger-80e324d-scaled.jpg" alt="ginger">
+            <h3>ginger</h3>
+            <p>₹150 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('Red Chili')">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2022/3/GP/HA/KE/139023626/red-chili.jpg" alt="Red Chili">
+            <h3>Red Chili</h3>
+            <p>₹130 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('Green Chilli')">
+            <img src="https://fruitboxco.com/cdn/shop/products/VG-CL-20_800x.jpg?v=1588920882" alt="Green Chilli">
+            <h3>Green Chilli</h3>
+            <p>₹100 / kg</p>
+        </div>
+        <div class="vegetable" onclick="goToVendorPage('pumpkin')">
+            <img src="https://www.healthxchange.sg/sites/hexassets/Assets/food-nutrition/pumpkin-health-benefits-nutrition-facts.jpg" alt="pumpkin">
+            <h3>pumpkin</h3>
+            <p>₹28 / kg</p>
         </div>
     </section>
 
