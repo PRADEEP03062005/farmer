@@ -3,58 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login as Farmer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .login-container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-        }
-        .login-container h2 {
-            margin-bottom: 20px;
-            color: #4CAF50;
-        }
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <title>Farmer Registration</title>
 </head>
-<body>
-    <div class="login-container">
-        <h2>Login as Farmer</h2>
-        <form action="#" method="POST">
-            <input type="text" placeholder="Enter Name" required><br>
-            <input type="text" placeholder="Enter City/Town/Village" required><br>
-            <input type="text" placeholder="Enter Pincode" required><br>
-            <button type="submit">Login</button>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9;">
+    <h1></h1>
+    <pre>
+
+
+
+
+
+    </pre>
+
+    <div class="container" style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h2 style="text-align: center; color: #25f065; font-size: 24px; margin-right: 5px;">Farmer Registration</h2>
+        <form id="registration-form">
+            <label for="name" style="font-weight: bold; margin-bottom: 5px; display: block;">Farmer Name</label>
+            <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; padding-right: 2px;">
+
+            <label for="contact" style="font-weight: bold; margin-bottom: 5px; display: block;">Contact Number</label>
+            <input type="tel" id="contact" type="number" name="contact" pattern="\d{10}" required placeholder="10-digit number" style="width: 100%;   padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; padding-right:2px;">
+
+            <label for="address" style="font-weight: bold; margin-bottom: 5px; display: block;">Farm Address</label>
+            <textarea id="address" name="address" rows="3" required style="width: 100%; padding:  10px; padding-right: 2px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;"></textarea>
+
+            <label for="map-location" style="font-weight: bold; margin-bottom: 5px; display: block;">Google Map Location (Optional)</label>
+            <input type="url" id="map-location" name="map-location "  placeholder="Paste your Google Map URL" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; padding-right:2px;">
+
+            <button type="submit" onclick="farmervegiaddpage.html" style="width: 100%; padding: 15px; background-color: #28a745; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">Register</button>
         </form>
+
+        <div id="confirmation-message" class="hidden" style="display: none; text-align: center; margin-top: 20px; font-size: 18px; color: #4CAF50; font-weight: bold;">Registration Successful!</div>
     </div>
+
+    <script>
+        document.getElementById('registration-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const confirmationMessage = document.getElementById('confirmation-message');
+            confirmationMessage.style.display = 'block';
+            setTimeout(function() {
+                confirmationMessage.style.display = 'none';
+                window.location.href = 'farmervegiaddpage.html';
+            }, 300);
+        });
+    </script>
+
 </body>
 </html>
