@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm 2 Home</title>
+    
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Main container */
+        html, body {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Image with text */
+        .content {
+            position: relative;
+            width: 100%;
+            height: 70vh;  /* Reduced height for the image (70% of viewport height) */
+            overflow: hidden;
+        }
+
+        .image-section {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-image: url('/html/plant.jpg'); /* Image set as 'farm.jpg' */
+            background-size: cover;
+            background-position: bottom center;  /* Crop the image from the top */
+            object-fit: cover;
+        }
+
+        /* Text Styling */
+        .text-left, .text-right {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            padding: 20px;
+            line-height: 1.6;  /* Adjust line height for better spacing */
+        }
+
+        .text-left {
+            left: 5%;
+            text-align: left;  /* Left-aligned text */
+        }
+
+        .text-right {
+            right: 5%;
+            text-align: right;  /* Right-aligned text */
+        }
+
+        .login-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 12px 24px;
+            background-color: #e76f51;
+            color: white;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 1; /* Ensure it's above other elements */
+        }
+
+        .login-btn:hover {
+            background-color: #264653;
+        }
+
+        /* Scroll effect */
+        .scroll-text {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateX(0);
+            transition: transform 0.3s ease;
+        }
+
+        /* Form styling */
+        .form-container {
+            padding: 20px;
+            max-width: 500px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .form-container input, .form-container select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2a9d8f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #264653;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Main Content Section -->
+<div class="content">
+
+    <!-- Image Section with Text -->
+    <div class="image-section">
+        <div class="text-left scroll-text">
+            <p>Welcome to the farm</p>
+            <p>We provide fresh organic produce</p>
+            <p>Delivered right to your doorstep</p>
+        </div>
+        
+        <!-- Login Button -->
+        <button class="login-btn">Login</button>
+
+        <div class="text-right scroll-text">
+            <p>Welcome back to xxxx</p>
+            <p>Enjoy the best from our farm</p>
+            <p>Freshness you can trust</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- Form Section -->
+<div class="form-container">
+    <h2>Contact Us</h2>
+    <form id="contact-form">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="number" id="age" placeholder="Age" required>
+        
+        <select id="gender" required>
+            <option value="" disabled selected>Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <input type="text" id="m_number" placeholder="Mobile Number" required>
+        <input type="email" id="email" placeholder="Email" required>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<!-- JavaScript -->
+<script>
+    // Get the scrollable text elements
+    const leftText = document.querySelector('.text-left');
+    const rightText = document.querySelector('.text-right');
+
+    // Scroll event to move text based on scroll position
+    window.addEventListener('scroll', function() {
+        const scrollPos = window.scrollY; // Get scroll position
+
+        // Move the left text horizontally towards left
+        leftText.style.transform = `translateX(${scrollPos * -0.5}px)`;  // Left text moves to the left
+
+        // Move the right text horizontally towards right
+        rightText.style.transform = `translateX(${scrollPos * 0.5}px)`; // Right text moves to the right
+    });
+
+    // Optional: Form validation (example)
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();  // Prevent actual form submission for demo
+        alert('Form submitted!');
+    });
+</script>
+
+</body>
+</html>
